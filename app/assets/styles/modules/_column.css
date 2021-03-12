@@ -1,0 +1,25 @@
+.column {
+  position: relative;
+  width: 100%;
+  padding-right: 18px;
+  padding-left: 18px;
+
+  &__auto {
+    width: auto;
+  }
+
+  &__5 {
+    flex: 0 0 41.666667%;
+    max-width: 41.666667%;
+  }
+
+  &__6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+  &__11 {
+    flex: 0 0 91.666667%;
+    max-width: 91.666667%;
+  }
+}

@@ -1,0 +1,19 @@
+.header {
+  display: block;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  background: white;
+  transition: background 0.5s ease-in-out;
+
+  &--logo {
+    max-width: 190px;
+  }
+
+  &--dark {
+    background: rgba(1, 2, 3, 0.9);
+  }
+}

@@ -1,0 +1,19 @@
+.results {
+  &__item {
+    margin-bottom: 40px;
+    p {
+      margin-bottom: 0;
+      margin-top: 0;
+      line-height: 1;
+    }
+  }
+
+  &--label {
+    font-style: italic;
+  }
+
+  &--result {
+    font-size: 62px;
+    font-family: "Oswald", sans-serif;
+  }
+}

@@ -1,0 +1,59 @@
+.menu {
+  &__button {
+    display: block;
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+    svg {
+      #close--icon {
+        visibility: hidden;
+      }
+    }
+  }
+
+  &__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform-origin: center top;
+    height: 0;
+    width: 100%;
+    background: #010203;
+  }
+
+  &__nav {
+    display: block;
+    position: absolute;
+    top: -40px;
+    right: -30px;
+    width: 260px;
+    padding-top: 100px;
+    padding-bottom: 60px;
+    pointer-events: none;
+    ul {
+      list-style: none;
+      display: block;
+      margin: 0;
+      padding: 0;
+      padding-left: 36px;
+      position: relative;
+      li {
+        padding-top: 18px;
+        padding-bottom: 18px;
+        a {
+          font-size: 28px;
+          color: white;
+          text-decoration: none;
+          font-weight: 600;
+          position: absolute;
+        }
+      }
+    }
+  }
+
+  &__mask {
+    height: 34px;
+    overflow: hidden;
+    position: relative;
+  }
+}

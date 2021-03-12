@@ -1,0 +1,22 @@
+.button {
+  font-size: 20px;
+  color: white;
+  text-decoration: none;
+  padding-top: 18px;
+  padding-bottom: 18px;
+  padding-left: 28px;
+  padding-right: 28px;
+  border: solid 1px white;
+  display: inline-block;
+  font-weight: 600;
+
+  &--standard {
+    color: white;
+    text-decoration: none;
+    padding-bottom: 5px;
+    border-bottom: solid white 1px;
+    font-weight: 600;
+    margin-left: 18px;
+    margin-right: 18px;
+  }
+}
