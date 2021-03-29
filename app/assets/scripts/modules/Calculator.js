@@ -1,4 +1,5 @@
 import { CountUp } from "countup.js";
+import AutoNumeric from "autonumeric";
 
 class Calculator {
   constructor() {
@@ -7,6 +8,9 @@ class Calculator {
     this.AverageAmountPerCharge = null;
     this.ProfitMargin = null;
     this.PercentagePayingWithCards = null;
+
+    this.dollarInput = null;
+    this.percentInput = null;
 
     this.MonthlySavings = document.querySelector(".results--monthly-savings");
     this.AnnualSavings = document.querySelector(".results--annual-savings");
@@ -30,10 +34,23 @@ class Calculator {
     window.results = this.formulae;
 
     this.init();
+    this.dollarInput = new AutoNumeric.multiple(".form--input-dollars", {
+      currencySymbol: "$",
+      unformatOnSubmit: true,
+    });
+    this.percentInput = new AutoNumeric.multiple(
+      ".form--input-percent",
+      "percentageUS2decPos",
+      {
+        suffixText: "%",
+        unformatOnSubmit: true,
+      }
+    );
 
     this.form = document.getElementById("calculate-form");
 
     this.events();
+
     this.MonthlySavingsCounter = new CountUp(this.MonthlySavings, 0);
     this.AnnualSavingsCounter = new CountUp(this.AnnualSavings, 0);
     this.IncreasedProfitMarginCounter = new CountUp(
@@ -44,6 +61,9 @@ class Calculator {
         decimalPlaces: 2,
       }
     );
+
+    window.dollars = this.dollarInput;
+    window.percent = this.percentInput;
   }
 
   init() {
@@ -159,6 +179,12 @@ class Calculator {
     this.IncreasedProfitMarginCounter.update(
       this.formulae.increased_profit_margin_on_card_sales
     );
+
+    this.dollarInput[0].reformat();
+    this.dollarInput[1].reformat();
+    this.dollarInput[2].reformat();
+    this.percentInput[0].reformat();
+    this.percentInput[1].reformat();
   }
 
   events() {

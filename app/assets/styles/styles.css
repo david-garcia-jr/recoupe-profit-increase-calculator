@@ -1,4 +1,7 @@
 @import "normalize.css";
+
+@import "../../../node_modules/bootstrap/dist/css/bootstrap";
+
 @import "base/_variables";
 @import "base/_mixins";
 @import "base/_global";
