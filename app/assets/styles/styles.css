@@ -1,6 +1,7 @@
 @import "normalize.css";
 
 @import "../../../node_modules/bootstrap/dist/css/bootstrap";
+@import "../../../node_modules/font-awesome/css/font-awesome.css";
 
 @import "base/_variables";
 @import "base/_mixins";

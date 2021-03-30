@@ -135,10 +135,11 @@ class Calculator {
 
   calcIncreasedProfitMarginOnCardSales() {
     var r =
-      (parseFloat(this.formulae.recoupe_card_monthly_profit) /
-        parseFloat(this.formulae.current_card_monthly_profit) -
+      (parseFloat(this.formulae.total_recoupe_monthly_profit_margin) /
+        parseFloat(this.formulae.total_current_monthly_profit_margin) -
         1) *
       100;
+    console.log(r);
     return r;
   }
 
