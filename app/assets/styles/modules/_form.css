@@ -23,9 +23,9 @@
   }
 
   button {
-    background: transparent;
+    background: white;
     border: solid 1px white;
-    color: white;
+    color: $brandColor;
     padding: 10px;
     transition: all 0.45s ease;
     font-family: "Oswald", sans-serif;

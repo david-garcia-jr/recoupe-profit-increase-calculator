@@ -37,6 +37,7 @@ class Calculator {
     this.dollarInput = new AutoNumeric.multiple(".form--input-dollars", {
       currencySymbol: "$",
       unformatOnSubmit: true,
+      minimumValue: 0,
     });
     this.percentInput = new AutoNumeric.multiple(
       ".form--input-percent",
@@ -47,7 +48,18 @@ class Calculator {
       }
     );
 
+    this.percentInputNoNegative = new AutoNumeric.multiple(
+      ".form--input-percent-no-negative",
+      "percentageUS2decPos",
+      {
+        suffixText: "%",
+        unformatOnSubmit: true,
+        minimumValue: 0,
+      }
+    );
+
     this.form = document.getElementById("calculate-form");
+    this.nonNegativeInputs = document.querySelector(".no-negative");
 
     this.events();
 
@@ -140,7 +152,7 @@ class Calculator {
         1) *
       100;
     console.log(r);
-    return r;
+    return Math.abs(r);
   }
 
   calculate() {
@@ -190,6 +202,10 @@ class Calculator {
 
   events() {
     this.form.addEventListener("submit", this.calculate.bind(this));
+    this.nonNegativeInputs.addEventListener("keydown", (event) => {
+      console.log(event);
+      if (event.code == "minus" || event.code == "NumpadSubtract") return false;
+    });
   }
 }
 

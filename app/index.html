@@ -83,27 +83,27 @@
               <form class="form" id="calculate-form">
                 <div class="form__group">
                   <label>Monthly credit card charges<i class="fa fa-question-circle pl-2" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="The amount of money your business collects monthly in credit card purchases."></i></label>
-                  <input type="text" class="form--input form--input-dollars" name="MonthlyCreditCard" placeholder="$" step="0.01" required>
+                  <input type="text" class="form--input form--input-dollars no-negative" name="MonthlyCreditCard" placeholder="$" step="0.01" required>
                 </div>
                 <div class="form__group">
                   <label>Monthly debit card charges<i class="fa fa-question-circle pl-2" aria-hidden="true" data-toggle="tooltip" data-placement="right"
                     title="The amount of money your business collects montly in debit card purchases."></i></label>
-                  <input type="text" class="form--input form--input-dollars" name="MonthlyDebitCard" placeholder="$" step="0.01" required>
+                  <input type="text" class="form--input form--input-dollars no-negative" name="MonthlyDebitCard" placeholder="$" step="0.01" required>
                 </div>
                 <div class="form__group">
                   <label>Average amount per charge<i class="fa fa-question-circle pl-2" aria-hidden="true" data-toggle="tooltip" data-placement="right"
                     title="The average amount for any credit/debit card transaction."></i></label>
-                  <input type="text" class="form--input form--input-dollars" name="AverageAmountPerCharge" placeholder="$" step="0.01" required>
+                  <input type="text" class="form--input form--input-dollars no-negative" name="AverageAmountPerCharge" placeholder="$" step="0.01" required>
                 </div>
                 <div class="form__group">
                   <label>Profit Margin<i class="fa fa-question-circle pl-2" aria-hidden="true" data-toggle="tooltip" data-placement="right"
-                    title="Your company's gross profit margin."></i></label>
+                    title="Your company's net profit margin."></i></label>
                   <input type="text" class="form--input form--input-percent" name="ProfitMargin" placeholder="%" step="0.01" required>
                 </div>
                 <div class="form__group">
                   <label>% customers paying with cards<i class="fa fa-question-circle pl-2" aria-hidden="true" data-toggle="tooltip" data-placement="right"
                     title="Estimated percentage customers paying with a card rather than other forms of payment (cash or check)."></i></label>
-                  <input type="text" class="form--input form--input-percent" name="PercentagePayingWithCards" placeholder="%" step="0.01" required>
+                  <input type="text" class="form--input form--input-percent-no-negative" name="PercentagePayingWithCards" placeholder="%" step="0.01" required>
                 </div>
                 <div class="form__group">
                   <button type="submit">Calculate</button>
@@ -139,7 +139,7 @@
                 </div>
                 <div class="results__item">
                   <p>
-                    <span class="results--label">Increased overall Profit Margin</span>
+                    <span class="results--label">Increased Net Profit Margin</span>
                   </p>
                   <p>
                     <span class="results--increased-profit-margin results--result">0</span>
