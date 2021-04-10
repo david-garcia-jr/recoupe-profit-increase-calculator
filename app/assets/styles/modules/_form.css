@@ -8,7 +8,7 @@
   }
 
   &--input {
-    width: 50%;
+    width: 100%;
     background: transparent;
     border: solid 1px white;
     color: white;
@@ -52,5 +52,11 @@
   :-moz-placeholder {
     /* Firefox 18- */
     color: white;
+  }
+
+  @mixin atMedium {
+    &--input {
+      width: 50%;
+    }
   }
 }

@@ -46,3 +46,16 @@ p {
 a {
   font-size: 20px;
 }
+
+.alert-success {
+  display: none;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 1s ease-in-out;
+}
+
+.alert-show {
+  display: block;
+  visibility: visible;
+  opacity: 1;
+}

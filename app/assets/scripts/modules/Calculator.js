@@ -1,6 +1,11 @@
 import { CountUp } from "countup.js";
 import AutoNumeric from "autonumeric";
 
+import firebase from "firebase";
+import "firebase/firestore";
+
+const axios = require("axios");
+
 class Calculator {
   constructor() {
     this.MonthlyCreditCard = null;
@@ -37,7 +42,9 @@ class Calculator {
     this.dollarInput = new AutoNumeric.multiple(".form--input-dollars", {
       currencySymbol: "$",
       unformatOnSubmit: true,
-      minimumValue: 0,
+      minimumValue: 1,
+      decimalPlaces: 2,
+      allowDecimalPadding: false,
     });
     this.percentInput = new AutoNumeric.multiple(
       ".form--input-percent",
@@ -45,6 +52,8 @@ class Calculator {
       {
         suffixText: "%",
         unformatOnSubmit: true,
+        decimalPlaces: 2,
+        allowDecimalPadding: false,
       }
     );
 
@@ -55,10 +64,13 @@ class Calculator {
         suffixText: "%",
         unformatOnSubmit: true,
         minimumValue: 0,
+        decimalPlaces: 2,
+        allowDecimalPadding: false,
       }
     );
 
     this.form = document.getElementById("calculate-form");
+    this.contactForm = document.getElementById("contact-form");
     this.nonNegativeInputs = document.querySelector(".no-negative");
 
     this.events();
@@ -76,6 +88,13 @@ class Calculator {
 
     window.dollars = this.dollarInput;
     window.percent = this.percentInput;
+
+    this.server = axios.create({
+      baseUrl: "http://localhost:3000",
+    });
+    this.sessionData = {};
+    window.sessionData = this.sessionData;
+    this.resultsContainer = document.getElementById("results-anchor");
   }
 
   init() {
@@ -169,6 +188,7 @@ class Calculator {
       "AverageAmountPerCharge"
     )[0].value;
     this.ProfitMargin = document.getElementsByName("ProfitMargin")[0].value;
+
     this.PercentagePayingWithCards = document.getElementsByName(
       "PercentagePayingWithCards"
     )[0].value;
@@ -197,15 +217,75 @@ class Calculator {
     this.dollarInput[1].reformat();
     this.dollarInput[2].reformat();
     this.percentInput[0].reformat();
-    this.percentInput[1].reformat();
+    this.percentInputNoNegative[0].reformat();
+
+    this.addInputsToSession();
+    this.logSession();
+    this.resultsContainer.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }
+
+  addInputsToSession() {
+    let inputs = {
+      monthly_credit_card_charges: this.MonthlyCreditCard,
+      monthly_debit_card_charges: this.MonthlyDebitCard,
+      average_amount_per_charge: this.AverageAmountPerCharge,
+      profit_margin: this.ProfitMargin,
+      percent_customers_paying_with_cards: this.PercentagePayingWithCards,
+    };
+
+    this.sessionData.inputs = inputs;
+  }
+
+  logSession() {
+    this.sessionData.calculations = this.formulae;
+
+    this.server({
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      data: this.sessionData,
+      url: "http://staging.recoupe.0phiuchus.io:3000/save",
+      responseType: "json",
+    });
+  }
+
+  submitForm() {
+    event.preventDefault();
+
+    let contactInfo = {
+      first_name: document.getElementById("first-name").value,
+      last_name: document.getElementById("last-name").value,
+      company: document.getElementById("company").value,
+      email: document.getElementById("email").value,
+    };
+
+    this.sessionData.user = contactInfo;
+
+    this.server({
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      data: this.sessionData,
+      url: "http://staging.recoupe.0phiuchus.io:3000/save",
+      responseType: "json",
+    }).then(function (response) {
+      console.log(response);
+      document.querySelector(".alert-success").classList.add("alert-show");
+      document.querySelector(".alert-success").scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    });
   }
 
   events() {
     this.form.addEventListener("submit", this.calculate.bind(this));
-    this.nonNegativeInputs.addEventListener("keydown", (event) => {
-      console.log(event);
-      if (event.code == "minus" || event.code == "NumpadSubtract") return false;
-    });
+    this.contactForm.addEventListener("submit", this.submitForm.bind(this));
   }
 }
 

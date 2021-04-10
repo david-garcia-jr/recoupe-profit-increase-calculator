@@ -77,7 +77,7 @@
                 How much will your profit Increase?
               </h2>
               <p>
-                Fill out the fields below and we will calculate your Savings/Profit increase.
+                Fill out the fields below and we will calculate your estimated Savings/Profit increase.
               </p>
 
               <form class="form" id="calculate-form">
@@ -96,7 +96,7 @@
                   <input type="text" class="form--input form--input-dollars no-negative" name="AverageAmountPerCharge" placeholder="$" step="0.01" required>
                 </div>
                 <div class="form__group">
-                  <label>Profit Margin<i class="fa fa-question-circle pl-2" aria-hidden="true" data-toggle="tooltip" data-placement="right"
+                  <label>Net Profit Margin<i class="fa fa-question-circle pl-2" aria-hidden="true" data-toggle="tooltip" data-placement="right"
                     title="Your company's net profit margin."></i></label>
                   <input type="text" class="form--input form--input-percent" name="ProfitMargin" placeholder="%" step="0.01" required>
                 </div>
@@ -112,13 +112,14 @@
 
 
             </div>
-            <div class="col-12 col-md-6">
+            <div class="col-12 col-md-6 mt-5 mt-md-0">
               <h2>Results</h2>
               <p>
                 Real Dollars Straight To Your Bottom Line Profit!
               </p>
 
-              <div class="results">
+              <div id="results" class="results position-relative">
+                <div id="results-anchor" class="position-absolute" style="top: -300px; left: 0;"></div>
                 <div class="results__item">
                   <p>
                     <span class="results--label">Monthly Savings</span>
@@ -149,6 +150,33 @@
                 </div>
               </div>
 
+              <div class="contact-form mt-5">
+                <p>Contact us today and let us help you keep more of your profits!</p>
+                <div class="alert alert-success" role="alert">
+                  Thank you for reaching out to us. A representative will be contacting you shortly.
+                </div>
+                <form class="form" id="contact-form">
+                  <div class="form__group">
+                    <label>First Name</label>
+                    <input type="text" class="form--input" name="First Name" id="first-name" required>
+                  </div>
+                  <div class="form__group">
+                    <label>Last Name</label>
+                    <input type="text" class="form--input" name="Last Name" id="last-name" required>
+                  </div>
+                  <div class="form__group">
+                    <label>Company</label>
+                    <input type="text" class="form--input" name="Company" id="company">
+                  </div>
+                  <div class="form__group">
+                    <label>E-Mail Address</label>
+                    <input type="email" class="form--input" name="Email" id="email" required>
+                  </div>
+                  <div class="form__group">
+                    <button type="submit">Submit</button>
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
         </div>
