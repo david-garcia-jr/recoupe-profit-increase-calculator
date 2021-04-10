@@ -248,7 +248,7 @@ class Calculator {
         "content-type": "application/json",
       },
       data: this.sessionData,
-      url: "http://staging.recoupe.0phiuchus.io:3000/save",
+      url: "http://staging.recoupe.0phiuchus.io/save",
       responseType: "json",
     });
   }
