@@ -16,7 +16,7 @@ app.use(express.json());
 app.use(function (req, res, next) {
   res.header(
     "Access-Control-Allow-Origin",
-    "http://staging.recoupe.0phiuchus.io"
+    "http://moreprofits.recoupefees.com"
   );
   res.header(
     "Access-Control-Allow-Headers",
