@@ -248,7 +248,7 @@ class Calculator {
         "content-type": "application/json",
       },
       data: this.sessionData,
-      url: "http://+recoupe.0phiuchus.io/save",
+      url: "http://api.recoupefees.com/save",
       responseType: "json",
     });
   }
@@ -271,7 +271,7 @@ class Calculator {
         "content-type": "application/json",
       },
       data: this.sessionData,
-      url: "http://recoupe.0phiuchus.io/save",
+      url: "http://api.recoupefees.com/save",
       responseType: "json",
     }).then(function (response) {
       console.log(response);
