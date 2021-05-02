@@ -56,7 +56,7 @@ async function notify() {
   let transporter = nodemailer.createTransport({
     host: "smtp.ethereal.email",
     port: 587,
-    secure: "tls",
+    secure: false,
     auth: {
       user: "amina57@ethereal.email",
       pass: "rb8sXX68sUuqU2Ryka",
