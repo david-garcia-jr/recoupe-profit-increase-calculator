@@ -82,7 +82,7 @@ async function notify(body, id) {
   };
 
   let info = await transporter.sendMail({
-    from: '"'data.firstName + ' ' + data.lastName'" <' + data.email + '>', // sender address
+    from: `"${data.firstName} ${data.lastName}" <${data.email}>`, // sender address
     to: "dgarciajr1182@gmail.com", // list of receivers
     subject: "Recoupe Fees: More Profits Inquiry", // Subject line
     text: "ID : " + id, // plain text body
