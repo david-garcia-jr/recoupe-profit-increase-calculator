@@ -37,7 +37,8 @@ app.post("/save", (req, res) => {
     .add(req.body)
     .then((docRef) => {
       console.log("Calculation written with ID: ", docRef.id);
-      notify().catch(console.error);
+      console.log(req.body);
+      notify(req.body, docRef.id).catch(console.error);
       res.sendStatus(200);
     })
     .catch((error) => {
@@ -50,7 +51,7 @@ app.listen(port, () => {
   console.log(`App is listenting to port ${port}`);
 });
 
-async function notify() {
+async function notify(body, id) {
   //let testAccount = await nodemailer.createTestAccount();
 
   let transporter = nodemailer.createTransport({
@@ -64,15 +65,27 @@ async function notify() {
   });
 
   let data = {
-    firstName: "James",
-    lastName: "Smith",
+    firstName: req.body.user.first_name,
+    lastName: req.body.user.last_name,
+    company: req.body.user.company,
+    email: req.body.user.email,
+    monthlyCreditCardCharges: req.body.inputs.monthly_credit_card_charges,
+    montlhyDebitCardCharges: req.body.inputs.monthly_debit_card_charges,
+    percentCustomersPayingWithCards:
+      req.body.inputs.percent_customers_paying_with_cards,
+    profitMargin: req.body.inputs.profit_margin,
+    averageAmountPerCharge: req.body.inputs.average_amount_per_charge,
+    annualSavings: req.body.calculations.annual_savings,
+    monthlySavings: req.body.calculations.monthly_savings,
+    increadedNetProfitMargin:
+      req.body.calculations.increased_profit_margin_on_card_sales,
   };
 
   let info = await transporter.sendMail({
-    from: '"Fred Foo 👻" <foo@example.com>', // sender address
+    from: '"'data.firstName + ' ' + data.lastName'" <' + data.email + '>', // sender address
     to: "dgarciajr1182@gmail.com", // list of receivers
-    subject: "Hello ✔", // Subject line
-    text: "ID : 5lR6Ehh0C0sNTPtCd6Oy", // plain text body
+    subject: "Recoupe Fees: More Profits Inquiry", // Subject line
+    text: "ID : " + id, // plain text body
     html: compiled.render(data), // html body
   });
 
