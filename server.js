@@ -66,7 +66,7 @@ async function notify(body, id) {
 
   let data = {
     id: id,
-    createdAt: body.createdAt,
+    createdAt: Date.now(),
     firstName: body.user.first_name,
     lastName: body.user.last_name,
     company: body.user.company,
