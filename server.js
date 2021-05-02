@@ -65,20 +65,20 @@ async function notify(body, id) {
   });
 
   let data = {
-    firstName: req.body.user.first_name,
-    lastName: req.body.user.last_name,
-    company: req.body.user.company,
-    email: req.body.user.email,
-    monthlyCreditCardCharges: req.body.inputs.monthly_credit_card_charges,
-    montlhyDebitCardCharges: req.body.inputs.monthly_debit_card_charges,
+    firstName: body.user.first_name,
+    lastName: body.user.last_name,
+    company: body.user.company,
+    email: body.user.email,
+    monthlyCreditCardCharges: body.inputs.monthly_credit_card_charges,
+    montlhyDebitCardCharges: body.inputs.monthly_debit_card_charges,
     percentCustomersPayingWithCards:
-      req.body.inputs.percent_customers_paying_with_cards,
-    profitMargin: req.body.inputs.profit_margin,
-    averageAmountPerCharge: req.body.inputs.average_amount_per_charge,
-    annualSavings: req.body.calculations.annual_savings,
-    monthlySavings: req.body.calculations.monthly_savings,
+      body.inputs.percent_customers_paying_with_cards,
+    profitMargin: body.inputs.profit_margin,
+    averageAmountPerCharge: body.inputs.average_amount_per_charge,
+    annualSavings: body.calculations.annual_savings,
+    monthlySavings: body.calculations.monthly_savings,
     increadedNetProfitMargin:
-      req.body.calculations.increased_profit_margin_on_card_sales,
+      body.calculations.increased_profit_margin_on_card_sales,
   };
 
   let info = await transporter.sendMail({
