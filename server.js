@@ -66,19 +66,20 @@ async function notify(body, id) {
 
   let data = {
     id: id,
+    createdAt: body.createdAt,
     firstName: body.user.first_name,
     lastName: body.user.last_name,
     company: body.user.company,
     email: body.user.email,
     monthlyCreditCardCharges: body.inputs.monthly_credit_card_charges,
-    montlhyDebitCardCharges: body.inputs.monthly_debit_card_charges,
+    monthlyDebitCardCharges: body.inputs.monthly_debit_card_charges,
     percentCustomersPayingWithCards:
       body.inputs.percent_customers_paying_with_cards,
     profitMargin: body.inputs.profit_margin,
     averageAmountPerCharge: body.inputs.average_amount_per_charge,
     annualSavings: body.calculations.annual_savings,
     monthlySavings: body.calculations.monthly_savings,
-    increadedNetProfitMargin:
+    increasedNetProfitMargin:
       body.calculations.increased_profit_margin_on_card_sales,
   };
 
