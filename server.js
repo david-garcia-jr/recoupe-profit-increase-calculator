@@ -77,10 +77,11 @@ async function notify(body, id) {
       body.inputs.percent_customers_paying_with_cards,
     profitMargin: body.inputs.profit_margin,
     averageAmountPerCharge: body.inputs.average_amount_per_charge,
-    annualSavings: body.calculations.annual_savings,
-    monthlySavings: body.calculations.monthly_savings,
-    increasedNetProfitMargin:
-      body.calculations.increased_profit_margin_on_card_sales,
+    annualSavings: body.calculations.annual_savings.toFixed(2),
+    monthlySavings: body.calculations.monthly_savings.toFixed(2),
+    increasedNetProfitMargin: body.calculations.increased_profit_margin_on_card_sales.toFixed(
+      2
+    ),
   };
 
   let info = await transporter.sendMail({
