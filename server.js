@@ -65,6 +65,7 @@ async function notify(body, id) {
   });
 
   let data = {
+    id: id,
     firstName: body.user.first_name,
     lastName: body.user.last_name,
     company: body.user.company,

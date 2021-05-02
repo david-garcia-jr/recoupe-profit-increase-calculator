@@ -201,10 +201,10 @@
                                             <tr>
                                                 <td align="right"
                                                     style="font-family: 'Open Sans', Arial, sans-serif; font-size:13px; color:#7f8c8d; line-height:26px;">
-                                                    My Company
-                                                    <br /> email@domain.com
+                                                    {{ company }}
+                                                    <br /> {{ email }}
                                                     <br /> ID : <span style="color:#3b3b3b">
-                                                        <strong>5lR6Ehh0C0sNTPtCd6Oy</strong> </span>
+                                                        <strong>{{ id }}</strong> </span>
                                                 </td>
                                             </tr>
                                             <!-- end address -->
@@ -279,19 +279,19 @@
                                 <tr>
                                     <td width="97" align="left" valign="top"
                                         style="font-family: 'Open Sans', Arial, sans-serif; font-size:14px; color:#3b3b3b; line-height:26px;  font-weight: bold;">
-                                        $50,000</td>
+                                        ${{ monthlyCreditCardCharges }}</td>
                                     <td width="87" align="left" valign="top"
                                         style="font-family: 'Open Sans', Arial, sans-serif; font-size:14px; color:#3b3b3b; line-height:26px;  font-weight: bold;">
-                                        $35,000</td>
+                                        ${{ monthlyDebitCardCharges }}</td>
                                     <td width="87" align="center" valign="top"
                                         style="font-family: 'Open Sans', Arial, sans-serif; font-size:14px; color:#3b3b3b; line-height:26px;  font-weight: bold;">
-                                        $450.65</td>
+                                        ${{ averageAmountPerCharge }}</td>
                                     <td width="87" align="right" valign="top"
                                         style="font-family: 'Open Sans', Arial, sans-serif; font-size:14px; color:#3b3b3b; line-height:26px;  font-weight: bold;">
-                                        16%</td>
+                                        {{ profitMargin }}%</td>
                                     <td width="87" align="right" valign="top"
                                         style="font-family: 'Open Sans', Arial, sans-serif; font-size:14px; color:#3b3b3b; line-height:26px;  font-weight: bold;">
-                                        45%</td>
+                                        {{ percentCustomersPayingWithCards }}%</td>
                                 </tr>
                             </table>
                         </td>
@@ -342,7 +342,7 @@
                                             <tr>
                                                 <td
                                                     style="font-family: 'Open Sans', Arial, sans-serif; font-size:24px; color:#3b3b3b; font-weight: bold;">
-                                                    $1,799</td>
+                                                    ${{ monthlySavings }}</td>
                                             </tr>
                                             <tr>
                                                 <td height="15"></td>
@@ -370,7 +370,7 @@
                                             <tr>
                                                 <td
                                                     style="font-family: 'Open Sans', Arial, sans-serif; font-size:24px; color:#3b3b3b;  font-weight: bold;">
-                                                    6.74%</td>
+                                                    {{ increasedNetProfitMargin }}%</td>
                                             </tr>
                                             <tr>
                                                 <td height="15"></td>
@@ -396,7 +396,7 @@
                                             <tr>
                                                 <td
                                                     style="font-family: 'Open Sans', Arial, sans-serif; font-size:24px; color:#3b3b3b;  font-weight: bold;">
-                                                    $21,583</td>
+                                                    ${{ annualSavings }}</td>
                                             </tr>
                                             <tr>
                                                 <td height="15"></td>
@@ -471,7 +471,7 @@
                                             <tr>
                                                 <td
                                                     style="font-family: 'Open Sans', Arial, sans-serif; font-size:13px; color:#3b3b3b; line-height:26px; padding-left:0px;">
-                                                    April 26, 2021 at 11:26:52 AM UTC-5</td>
+                                                    {{ createdAt }}</td>
                                             </tr>
                                         </table>
                                     </td>
